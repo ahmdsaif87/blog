@@ -1,30 +1,34 @@
-# Gunakan image resmi PHP dengan FPM
+# Gunakan image resmi PHP dengan FPM dan ekstensi yang dibutuhkan
 FROM php:8.2-fpm
 
-# Install dependencies yang dibutuhkan
-RUN apt-get update && apt-get install -y nginx unzip curl \
-    && docker-php-ext-install pdo pdo_mysql
+# Install dependencies
+RUN apt-get update && apt-get install -y \
+    nginx \
+    git \
+    unzip \
+    curl \
+    libpng-dev \
+    libonig-dev \
+    libxml2-dev \
+    && docker-php-ext-install pdo pdo_mysql mbstring exif pcntl bcmath gd
 
 # Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Set working directory di dalam container
-WORKDIR /app
+# Set working directory
+WORKDIR /var/www
 
-# Copy seluruh project Laravel ke dalam container
+# Copy project ke container
 COPY . .
 
-# Install dependency Laravel dengan Composer
-RUN composer install --no-dev --optimize-autoloader
-
-# Set permission storage & bootstrap (biar Laravel bisa nyimpen file)
-RUN chmod -R 777 storage bootstrap/cache
+# Ubah permission storage dan bootstrap agar Laravel bisa menulis
+RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
 
 # Copy konfigurasi Nginx
-COPY nginx.conf /etc/nginx/sites-available/default
+COPY docker/nginx.conf /etc/nginx/nginx.conf
 
-# Expose port Railway
-EXPOSE ${PORT}
+# Expose port 80
+EXPOSE 80
 
-# Jalankan Nginx dan PHP-FPM
-CMD service nginx start && php-fpm
+# Jalankan supervisord untuk PHP-FPM dan Nginx
+CMD ["sh", "-c", "php-fpm & nginx -g 'daemon off;'"]
