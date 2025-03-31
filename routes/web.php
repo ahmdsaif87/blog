@@ -10,3 +10,7 @@ Route::get('/blog/{slug}', [BlogController::class, 'show']);
 Route::get('/projects', [PageController::class, 'projects']);
 Route::get('/contact', [PageController::class, 'contact']);
 Route::get('/about', [PageController::class, 'about']);
+
+Route::get('/env', function () {
+    return env('APP_ENV');
+});
