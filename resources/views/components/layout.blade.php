@@ -16,13 +16,14 @@
             $manifest = file_exists($manifestPath) ? json_decode(file_get_contents($manifestPath), true) : [];
         @endphp
 
-        @isset($manifest['resources/css/app.css'], $manifest['resources/js/app.js'])
+        @if (!empty($manifest['resources/css/app.css']['file']) && !empty($manifest['resources/js/app.js']['file']))
             <link rel="stylesheet" href="{{ asset('build/' . $manifest['resources/css/app.css']['file']) }}">
             <script src="{{ asset('build/' . $manifest['resources/js/app.js']['file']) }}" defer></script>
         @else
-            <p style="color: red;">Error: manifest.json tidak ditemukan atau file tidak valid.</p>
-        @endisset
+            <p style="color: red;">Error: File CSS/JS tidak ditemukan di manifest.json</p>
+        @endif
     @endif
+
 
 
 
