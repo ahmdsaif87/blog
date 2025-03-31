@@ -11,6 +11,11 @@ export default defineConfig({
         tailwindcss(),
     ],
     build: {
-        outDir: 'dist'  
+        outDir: 'dist'
       },
+    server: {
+        hmr: {
+            host: 'saifdev.up.railway.app',
+        },
+    },
 });
