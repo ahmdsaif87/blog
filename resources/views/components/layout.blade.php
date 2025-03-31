@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Saif Dev')</title>
-    {{-- @vite('resources/css/app.css')
-    @vite('resources/js/app.js') --}}
+    @vite('resources/css/app.css')
+    @vite('resources/js/app.js')
 
-    @if (app()->environment('local'))
+    {{-- @if (app()->environment('local'))
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     @else
         @php
@@ -22,10 +22,7 @@
         @else
             <p style="color: red;">Error: File CSS/JS tidak ditemukan di manifest.json</p>
         @endif
-    @endif
-
-
-
+    @endif --}}
 
     <script>
         if (localStorage.getItem('theme') === 'dark') {
