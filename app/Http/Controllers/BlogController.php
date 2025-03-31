@@ -11,7 +11,7 @@ class BlogController extends Controller {
     public function index()
     {
         $blogs = $this->getBlogs();
-        return view('components.card', compact('blogs'));
+        return view('components.card-blog', compact('blogs'));
     }
 
     public function home()
