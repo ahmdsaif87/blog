@@ -28,12 +28,12 @@
             I may be at the beginning of my coding journey, but I’m eager to learn, grow, and build things step by step. Because in the end, passion and dedication make all the difference. 💙❤️
         </p>
     </div>
-    {{-- Hero Section End --}}
+    {{-- Hero Section Endd --}}
 
     {{-- Project Section --}}
     <div class="">
         <h1 class="text-3xl font-bold mb-6">Latest Project</h1>
-        
+
     </div>
     {{-- Project Section End --}}
 
