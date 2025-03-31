@@ -12,14 +12,14 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     @else
         @php
-            $manifest = file_exists(public_path('build/manifest.json'))
-                ? json_decode(file_get_contents(public_path('build/manifest.json')), true)
+            $manifest = file_exists(public_path('build/.vite/manifest.json'))
+                ? json_decode(file_get_contents(public_path('build/.vite/manifest.json')), true)
                 : [];
         @endphp
 
         @isset($manifest['resources/css/app.css'], $manifest['resources/js/app.js'])
-            <link rel="stylesheet" href="{{ asset('build/' . $manifest['resources/css/app.css']['file']) }}">
-            <script src="{{ asset('build/' . $manifest['resources/js/app.js']['file']) }}" defer></script>
+            <link rel="stylesheet" href="{{ asset('build/assets' . $manifest['resources/css/app.css']['file']) }}">
+            <script src="{{ asset('build/assets' . $manifest['resources/js/app.js']['file']) }}" defer></script>
         @else
             <p style="color: red;">Error: manifest.json tidak ditemukan.</p>
         @endisset
