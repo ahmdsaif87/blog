@@ -15,9 +15,9 @@ export default defineConfig({
         manifest: true,
       },
     server: {
+        host: '0.0.0.0',
         hmr: {
-            host: 'saifdev.up.railway.app',
-            // host: 'localhost',
-        },
-    },
+            host: process.env.VITE_HMR_HOST || 'localhost',
+        }
+    }
 });
