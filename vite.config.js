@@ -10,9 +10,9 @@ export default defineConfig({
         }),
         tailwindcss(),
     ],
-    build: {
-        outDir: 'public/build'
-      },
+    // build: {
+    //     outDir: 'public/build'
+    //   },
     server: {
         hmr: {
             host: 'saifdev.up.railway.app',
