@@ -12,6 +12,5 @@ Route::get('/contact', [PageController::class, 'contact']);
 Route::get('/about', [PageController::class, 'about']);
 
 Route::get('/debug-assets', function () {
-    return response()->json(scandir(public_path('build/assets')));
+    return response()->json(scandir(public_path('build/')));
 });
-

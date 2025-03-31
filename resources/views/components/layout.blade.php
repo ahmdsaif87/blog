@@ -12,19 +12,17 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     @else
         @php
-            $manifest = file_exists(public_path('build/.vite/manifest.json'))
-                ? json_decode(file_get_contents(public_path('build/.vite/manifest.json')), true)
-                : [];
+            $manifestPath = public_path('build/.vite/manifest.json');
+            $manifest = file_exists($manifestPath) ? json_decode(file_get_contents($manifestPath), true) : [];
         @endphp
 
-        @isset($manifest['resources/css/app.css'], $manifest['resources/js/app.js'])
-            <link rel="stylesheet" href="{{ asset('build/assets' . $manifest['resources/css/app.css']['file']) }}">
-            <script src="{{ asset('build/assets' . $manifest['resources/js/app.js']['file']) }}" defer></script>
+        @isset($manifest['assets/css/app.css'], $manifest['assets/js/app.js'])
+            <link rel="stylesheet" href="{{ asset('build/' . $manifest['assets/css/app.css']['file']) }}">
+            <script src="{{ asset('build/' . $manifest['assets/js/app.js']['file']) }}" defer></script>
         @else
-            <p style="color: red;">Error: manifest.json tidak ditemukan.</p>
+            <p style="color: red;">Error: manifest.json tidak ditemukan atau file tidak valid.</p>
         @endisset
     @endif
-
 
     <script>
         if (localStorage.getItem('theme') === 'dark') {
