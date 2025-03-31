@@ -11,6 +11,7 @@ Route::get('/projects', [PageController::class, 'projects']);
 Route::get('/contact', [PageController::class, 'contact']);
 Route::get('/about', [PageController::class, 'about']);
 
-Route::get('/env', function () {
-    return env('APP_ENV');
+Route::get('/debug-assets', function () {
+    return response()->json(scandir(public_path('build/assets')));
 });
+
