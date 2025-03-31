@@ -11,6 +11,13 @@ Route::get('/projects', [PageController::class, 'projects']);
 Route::get('/contact', [PageController::class, 'contact']);
 Route::get('/about', [PageController::class, 'about']);
 
-Route::get('/debug-assets', function () {
-    return response()->json(scandir(public_path('build/')));
+Route::get('/debug-manifest', function () {
+    $manifestPath = public_path('build/.vite/manifest.json');
+
+    if (!file_exists($manifestPath)) {
+        return response()->json(['error' => 'manifest.json TIDAK ditemukan di Railway!'], 404);
+    }
+
+    return response()->json(json_decode(file_get_contents($manifestPath), true));
 });
+
