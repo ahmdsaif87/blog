@@ -1,6 +1,6 @@
 <x-layout>
     {{-- Hero Section --}}
-    <section class="flex space-x-4 py-8">
+    <section class="flex space-x-4 py-9">
         <img src="{{ asset('profile.jpg') }}" alt="Profile" class="w-20 h-20 rounded-full">
         <div>
             <p class="text-2xl font-bold">Ahmad Saifi Khayatu Ulumuddin</p>
@@ -38,7 +38,7 @@
     {{-- Project Section --}}
     <section class="mb-12">
         <h3 class="mt-5">Latest Project</h3>
-        <!-- Project content here -->
+        <!-- Project content -->
     </section>
     {{-- Project Section End --}}
 

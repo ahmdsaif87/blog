@@ -28,7 +28,7 @@ class BlogController extends Controller {
 
     private function getBlogs()
     {
-        $blogFiles = File::files(resource_path('views/web/blogs'));
+        $blogFiles = File::files(public_path('blogs'));
 
         return collect($blogFiles)->map(function ($file) {
             return [
@@ -40,7 +40,7 @@ class BlogController extends Controller {
 
     public function show($slug)
     {
-        $filePath = resource_path("views/web/blogs/{$slug}.md");
+        $filePath = public_path("blogs/{$slug}.md");
 
         if (!File::exists($filePath)) {
             abort(404);
