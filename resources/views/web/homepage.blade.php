@@ -1,47 +1,52 @@
 <x-layout>
     {{-- Hero Section --}}
-    <div class="flex space-x-4 mb-6">
-        <img src="{{ asset('profile.jpg') }}" alt="Profile" class="w-20 h-20 rounded-full mt-7">
+    <section class="flex space-x-4 py-8">
+        <img src="{{ asset('profile.jpg') }}" alt="Profile" class="w-20 h-20 rounded-full">
         <div>
-            <h1 class="text-2xl font-bold">Ahmad Saifi Khayatu Ulumuddin</h1>
+            <p class="text-2xl font-bold">Ahmad Saifi Khayatu Ulumuddin</p>
             <p class="text-sm">Learning and building web dev skills</p>
         </div>
-    </div><hr>
+    </section>
 
-    <div class="text-justify space-y-4 mb-12">
-        <h3 class="mt-5">
-            Hey there! 👋
-        </h3>
-        <p>
-            I’m Saif, a university student who’s just starting out in the world of coding, driven by curiosity and the excitement of turning ideas into reality.
-        </p>
+    <section class="text-justify space-y-4 mb-12">
+        <h3 class="mt-5">Hey there! 👋</h3>
         <blockquote class="border-l-4 border-[var(--color-border)] pl-4 italic text-[var(--color-text)]">
-            "The only way to do great work is to love what you do." – Steve Jobs
+            I'm Saif, a college student who is passionate about coding, web development, and tech. Always curious, always building. 🚀
+
+            When I’m not coding, I’m probably watching an FC Barcelona match. Just like in football, coding is all about practice, teamwork, and persistence! ⚽💻
+
+            Let’s connect and build something awesome together!
         </blockquote>
-        <p>
-            I’m also a huge football fan, and FC Barcelona has always been a source of inspiration for me. Just like in football—where progress comes from practice, teamwork, and persistence—I believe learning to code is a journey of small wins and constant improvement.
-        </p>
-        <blockquote class="border-l-4 border-[var(--color-border)] pl-4 italic text-[var(--color-text)]">
-            "You have to fight to reach your dream. You have to sacrifice and work hard for it." -Lionel Messi
-        </blockquote>
-        <p>
-            I may be at the beginning of my coding journey, but I’m eager to learn, grow, and build things step by step. Because in the end, passion and dedication make all the difference. 💙❤️
-        </p>
-    </div>
-    {{-- Hero Section Endd --}}
+    </section>
+    {{-- Hero Section End --}}
+
+    {{-- Tech Stack Section --}}
+    <section class="text-justify space-y-4 mb-12">
+        <h3 class="mt-5">Tech Stack</h3>
+        <div class="text-[var(--color-text)] flex flex-wrap gap-2">
+            <span class="px-3 py-1 border-2 border-[var(--color-border)] rounded-lg">Laravel</span>
+            <span class="px-3 py-1 border-2 border-[var(--color-border)] rounded-lg">Tailwind CSS</span>
+            <span class="px-3 py-1 border-2 border-[var(--color-border)] rounded-lg">Node.js</span>
+            <span class="px-3 py-1 border-2 border-[var(--color-border)] rounded-lg">Bootstrap</span>
+            <span class="px-3 py-1 border-2 border-[var(--color-border)] rounded-lg">PHP</span>
+            <span class="px-3 py-1 border-2 border-[var(--color-border)] rounded-lg">MySQL</span>
+            <span class="px-3 py-1 border-2 border-[var(--color-border)] rounded-lg">Git</span>
+        </div>
+    </section>
+    {{-- Tech Stack Section End --}}
 
     {{-- Project Section --}}
-    <div class="">
-        <h1 class="text-3xl font-bold mb-6">Latest Project</h1>
-
-    </div>
+    <section class="mb-12">
+        <h3 class="mt-5">Latest Project</h3>
+        <!-- Project content here -->
+    </section>
     {{-- Project Section End --}}
 
     {{-- Blog Section --}}
-    <div class="">
-        <h1 class="text-3xl font-bold mb-6">Latest Blog</h1>
+    <section class="mb-12">
+        <h3 class="mt-5">Latest Blog</h3>
         <x-card :blogs="$blogs"/>
         <a href="/blog" class="text-blue-600 hover:underline mt-4 block">See All</a>
-    </div>
+    </section>
     {{-- Blog Section End --}}
 </x-layout>
