@@ -1,62 +1,62 @@
 <?php
+
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\File;
 use Illuminate\Routing\Controller;
-use League\CommonMark\Environment\Environment;
-use League\CommonMark\Extension\CommonMark\CommonMarkCoreExtension;
-use League\CommonMark\MarkdownConverter;
+use Illuminate\Support\Facades\View;
+use Illuminate\Support\Str;
 
-class BlogController extends Controller {
+class BlogController extends Controller
+{
+
     public function index()
     {
-        $blogs = $this->getBlogs();
-        return view('components.card-blog', compact('blogs'));
+        $blogs = $this->getAllBlogPosts();
+        return view('web.blog', compact('blogs'));
     }
 
     public function home()
     {
-        $blogs = collect($this->getBlogs())->take(2);
-        return view('web.homepage', compact('blogs'));
-    }
+        $blogs = $this->getAllBlogPosts();
+        $latestBlog = $blogs->first();
 
-    public function blog()
-    {
-        $blogs = collect($this->getBlogs());
-        return view('web.blog', compact('blogs'));
-    }
-
-    private function getBlogs()
-    {
-        $blogFiles = File::files(public_path('blogs'));
-
-        return collect($blogFiles)->map(function ($file) {
-            return [
-                'title' => pathinfo($file->getFilename(), PATHINFO_FILENAME),
-                'content' => File::get($file->getPathname()),
-            ];
-        });
+        return view('web.homepage', compact('blogs', 'latestBlog'));
     }
 
     public function show($slug)
     {
-        $filePath = public_path("blogs/{$slug}.md");
+        $viewPath = 'blogs.' . str_replace('-', '_', $slug);
 
-        if (!File::exists($filePath)) {
-            abort(404);
+        if (View::exists($viewPath)) {
+            return view('web.blog_detail', [
+                'content' => view($viewPath)->render(),
+                'title' => Str::title(str_replace('-', ' ', $slug))
+            ]);
         }
 
-        $markdown = File::get($filePath);
+        abort(404);
+    }
 
-        $environment = new Environment([
-            'html_input' => 'allow',
-            'allow_unsafe_links' => false,
-        ]);
-        $environment->addExtension(new CommonMarkCoreExtension());
+    /**
+     * Get all blog posts from Blade views only
+     */
+    protected function getAllBlogPosts()
+    {
+        $blogs = collect();
 
-        $converter = new MarkdownConverter($environment);
-        $content = $converter->convert($markdown)->getContent();
+        // Get Blade-based blogs
+        $bladeFiles = glob(resource_path('views/blogs/*.blade.php'));
+        foreach ($bladeFiles as $file) {
+            $slug = Str::slug(basename($file, '.blade.php'));
+            $blogs->push([
+                'slug' => $slug,
+                'title' => Str::title(str_replace(['-', '_'], ' ', basename($file, '.blade.php'))),
+                'content' => View::make('blogs.' . basename($file, '.blade.php'))->render(),
+                'created_at' => date('d M Y', filemtime($file)),
+                'type' => 'blade'
+            ]);
+        }
 
-        return view('web.blog_detail', compact('content'));
+        return $blogs;
     }
 }

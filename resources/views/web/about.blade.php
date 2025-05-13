@@ -11,19 +11,6 @@
         </section>
 
         <section class="mb-12">
-            <h3>Tech Stack</h3>
-            <div class="text-[var(--color-text)] flex flex-wrap gap-2">
-                <span class="px-3 py-1 border-2 border-[var(--color-border)] rounded-lg">Laravel</span>
-                <span class="px-3 py-1 border-2 border-[var(--color-border)] rounded-lg">Tailwind CSS</span>
-                <span class="px-3 py-1 border-2 border-[var(--color-border)] rounded-lg">Node.js</span>
-                <span class="px-3 py-1 border-2 border-[var(--color-border)] rounded-lg">Bootstrap</span>
-                <span class="px-3 py-1 border-2 border-[var(--color-border)] rounded-lg">PHP</span>
-                <span class="px-3 py-1 border-2 border-[var(--color-border)] rounded-lg">MySQL</span>
-                <span class="px-3 py-1 border-2 border-[var(--color-border)] rounded-lg">Git</span>
-            </div>
-        </section>
-
-        <section class="mb-12">
             <h3>Interests</h3>
             <p>Aside from coding, I love watching football (huge FC Barcelona fan! 🔵🔴) and enjoying anime series 🎥🍿.
             </p>
