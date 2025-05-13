@@ -8,7 +8,7 @@
         </div>
     </section>
 
-    <section class="text-justify space-y-4 mb-12 max-w-full mx-auto">
+    <section class="text-justify space-y-4 mb-12 max-w-3xl mx-auto">
         <h3 class="mt-5">Hey there! 👋</h3>
         <blockquote class="border-l-4 border-[var(--color-border)] pl-4 italic text-[var(--color-text)]">
             I'm Saif, a college student who is passionate about coding, web development, and tech. Always curious,
