@@ -36,7 +36,7 @@ body {
 
 @layer base {
     html, body {
-        @apply bg-[var(--color-bg)] text-[var(--color-text)] max-w-full overflow-x-hidden text-sm sm:text-base leading-relaxed break-words;
+        @apply bg-[var(--color-bg)] text-[var(--color-text)] w-full overflow-x-hidden text-sm sm:text-base leading-relaxed break-words;
     }
 
     h1, h2, h3 {
@@ -53,11 +53,11 @@ body {
     ul, ol { @apply my-6 space-y-2 list-disc list-inside; }
 
     .prose {
-        @apply max-w-screen-md w-full text-[var(--color-text)] break-words text-sm sm:text-base mx-auto px-4;
+        @apply w-full text-[var(--color-text)] break-words text-sm sm:text-base mx-auto px-4;
     }
 
     pre {
-        @apply bg-[var(--color-card-bg)] text-[var(--color-text)] p-4 rounded overflow-x-auto w-full max-w-full;
+        @apply bg-[var(--color-card-bg)] text-[var(--color-text)] p-4 rounded overflow-x-auto w-full;
         white-space: pre-wrap;
         word-wrap: break-word;
     }
@@ -81,7 +81,7 @@ body {
     }
 
     .container {
-        @apply w-full max-w-screen-md mx-auto px-4;
+        @apply w-full mx-auto px-4;
     }
 }
 
@@ -90,5 +90,5 @@ body {
 }
 
 .prose {
-    @apply max-w-full text-[var(--color-text)] break-words text-sm sm:text-base;
+    @apply w-full text-[var(--color-text)] break-words text-sm sm:text-base;
 }

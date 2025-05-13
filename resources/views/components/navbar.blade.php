@@ -1,6 +1,6 @@
 <div class="relative">
     <nav class="fixed top-0 w-full z-50 border-b border-[var(--color-border)] dark:border-[var(--color-border)] shadow bg-[var(--color-bg)/80] backdrop-blur-md">
-        <div class="max-w-full mx-auto px-4 py-3 flex justify-between items-center">
+        <div class="w-full mx-auto px-4 py-3 flex justify-between items-center">
             <div class="">
                 <i class="fa-solid fa-code"></i>
                 <a href="/" class="font-bold">ahmdsaif</a>
