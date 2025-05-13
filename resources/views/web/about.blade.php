@@ -1,5 +1,5 @@
 <x-layout>
-    <div class="text-justify">
+    <div class="text-justify max-w-full">
         <section class="mb-12">
             <h3>About Me</h3>
             <p>

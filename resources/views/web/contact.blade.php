@@ -1,5 +1,5 @@
 <x-layout>
-    <div class="text-justify mt-10">
+    <div class="text-justify mt-10 max-w-full">
         <p>Feel free to reach out and connect with me. Whether it's about tech, football, or anime, I'm always open to a great conversation!</p>
         <h3>Contact Person</h3>
         <div class="text-[var(--color-text)] flex flex-wrap gap-2 mt-4">

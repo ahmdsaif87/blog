@@ -1,6 +1,8 @@
-<h1>Instalasi Laravel</h1>
+<h1 class="mb-8">Instalasi Laravel</h1>
 
-<p>Laravel adalah salah satu framework PHP paling populer untuk pengembangan aplikasi web, dikenal dengan sintaks yang elegan dan fitur yang kuat. Panduan ini akan memandu Anda melalui proses instalasi langkah demi langkah.</p>
+<p class="text-sm text-gray-400">Created at: {{ date('d F Y H:i') }}</p>
+<p>Laravel adalah salah satu framework PHP paling populer untuk pengembangan aplikasi web, dikenal dengan sintaks yang
+    elegan dan fitur yang kuat. Panduan ini akan memandu Anda melalui proses instalasi langkah demi langkah.</p>
 
 <h2>Prasyarat</h2>
 <p>Sebelum menginstal Laravel, pastikan Anda memiliki:</p>
@@ -79,4 +81,5 @@ DB_PASSWORD=</code></pre>
 </ul>
 
 <h2>Kesimpulan</h2>
-<p>Selamat! Anda telah berhasil menginstal Laravel dan siap membangun aplikasi web. Laravel memiliki komunitas besar dan dokumentasi lengkap untuk membantu Anda dalam proses pengembangan.</p>
+<p>Selamat! Anda telah berhasil menginstal Laravel dan siap membangun aplikasi web. Laravel memiliki komunitas besar dan
+    dokumentasi lengkap untuk membantu Anda dalam proses pengembangan.</p>

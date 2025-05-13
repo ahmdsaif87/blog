@@ -40,7 +40,7 @@
 <body class="min-h-screen flex flex-col">
     <x-navbar />
 
-    <div class="flex-1 max-w-2xl mx-auto px-4 py-15">
+    <div class="flex-1 max-w-3xl mx-auto px-4 py-15">
         <main>
             {{ $slot }}
         </main>

@@ -52,11 +52,13 @@ class BlogController extends Controller
                 'slug' => $slug,
                 'title' => Str::title(str_replace(['-', '_'], ' ', basename($file, '.blade.php'))),
                 'content' => View::make('blogs.' . basename($file, '.blade.php'))->render(),
-                'created_at' => date('d M Y', filemtime($file)),
+                'created_at' => date('d M Y H:i', filemtime($file)),
                 'type' => 'blade'
             ]);
         }
 
-        return $blogs;
+        return $blogs->sortByDesc(function ($blog) {
+            return strtotime($blog['created_at']);
+        })->values();
     }
 }
